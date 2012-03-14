@@ -31,4 +31,4 @@ Block:
 CentOS, RHEL, Fedora:
  service iptables save
 
-Blocking can also be added to the code.
+Check out https://github.com/pham/blip for easy interface to iptables.
