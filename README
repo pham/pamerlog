@@ -1,9 +1,9 @@
 Parses MySQL's error log and output more readable and useful data.
 
-./pamerlog -file msyql.err -logs -days 5
+Find out the errors/warnings/notes and which table(s) to repair:
+./pamerlog -file msyql.err -logs -days 1
 
 Output:
-Tue Mar 13 00:29:01 2012 ERROR     2 /thaptu/topics [repair needed]
 Tue Mar 13 01:18:54 2012 ERROR    61 /scheme/tab1 [repair needed]
 Tue Mar 13 01:30:59 2012 ERROR    16 /scheme/tab1 [repair needed]
 Tue Mar 13 01:37:29 2012 ERROR     4 14479 [thread]
@@ -15,7 +15,9 @@ Tue Mar 13 02:53:09 2012 Note      1 iubnet.com.br
 Tue Mar 13 20:17:44 2012 ERROR     1 /scheme/table3 [repair needed]
 
 
+Find out the hosts that made most connections and block the offending ones:
 ./pamerlog -file mysql.err -hosts
+
 Output:
     3 222.189.238.115
     4 58.215.188.66
