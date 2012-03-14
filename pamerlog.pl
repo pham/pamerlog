@@ -1,10 +1,31 @@
 #!/usr/local/bin/perl -w
 use strict;
 
+=head1 PROGRAM
+
+C<pamerlog.pl> - Parse MySQL error log for info and stats.
+
+=head2 Usage
+
+ ./pamerlog.pl -file <error-log> [-logs] [-days] -no[warning|error|note]
+               -[unaccounted|hosts|schemas|logins] [-verbose]
+
+Show last 5 days of the log in a consolidated format and suppress both
+warnings and notes:
+
+ ./pamerlog.pl -logs -days 5 -file mydatabase.err -nowarning -nonote
+
+List all the hosts/IPs:
+
+ ./pamerlog.pl -file mydatabase.err -hosts
+
+=cut
+
 use vars qw/$LOG/;
 
-use constant HELP => qq{Formats MySQL error for readability.
- ./pamerlog -file <mysql-err-log>
+use constant HELP => qq{pamerlog.pl v1.0.1 
+Formats MySQL error log for readability.
+ ./pamerlog.pl -file <mysql-err-log>
    -logs          formatted log
    -days          number of days to look back
 
@@ -342,11 +363,20 @@ sub _printf {
 
 =head1 HISTORY
 
-20120313 - Created.
+20120313 - v1.0 - Created.
+
+20120314 - v1.0.1 - Rename, add PODs symlink.
 
 =head1 AUTHOR
 
-This module by Paul Pham L<<a href="https://twitter.com/phamnp">@phamnp</a>>.
+This module by Paul Pham.
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2012 by Paul Pham
+
+This program and library is free software;
+you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =cut
 
