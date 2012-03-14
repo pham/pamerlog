@@ -24,3 +24,11 @@ Output:
     4 hn.kd.ny.adsl
    32 218.87.122.213
   145 114.80.97.88
+
+Block:
+ iptables -A INPUT -s 114.80.97.88 -j DROP
+
+CentOS, RHEL, Fedora:
+ service iptables save
+
+Blocking can also be added to the code.
